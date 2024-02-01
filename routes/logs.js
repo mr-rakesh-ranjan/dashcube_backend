@@ -7,17 +7,16 @@ const sql = require('mssql');
 // get all logs
 router.get('/all', function (req, res) {
     getAllLogs().then((data) => {
-        console.log(data[0]);  //for debuggging only
+        // console.log(data[0]);  //for debuggging only
         res.json(data[0]);
     }).catch((err) => {
         console.log(err);
     })
 });
 
-// get logs by SourceSystem
+// filtering the data 
 router.get('/', function(req, res, next){
     const filters = req.query;
-    // const filteredLogs = [];
     getAllLogs().then((data) => {
         const filteredLogs = data[0].filter(log => {
             let isValid = true;

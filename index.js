@@ -1,5 +1,6 @@
 const express = require('express');
 const logsRouter = require('./routes/logs');
+const chartRouter = require('./routes/LogsChart')
 const dbConfig = require('./db/config');
     app = express(),
     cors = require('cors'),
@@ -19,6 +20,7 @@ if(sql.connect(dbConfig)){
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/logs', logsRouter)
+app.use('/charts', chartRouter)
 
 // driver method for run express app
 app.listen(server.port, () => {
