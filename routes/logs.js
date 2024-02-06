@@ -36,7 +36,7 @@ router.get('/', function(req, res, next){
 async function getAllLogs() {
     try {
         let pool = await sql.connect(dbConfig)
-        let logs = await pool.request().query("select * from Logs");
+        let logs = await pool.request().query("select TOP 100 * from Logs");
         return logs.recordsets;
     } catch (err){
         console.log(err);
