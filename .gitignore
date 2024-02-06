@@ -7,7 +7,7 @@
 /.vscode
 
 ngrok.yml
-
+/db/config.js
 
 # testing
 /coverage
